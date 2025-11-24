@@ -1,9 +1,12 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
+import Map from "./Map";
 
 function App() {
-  return "text here";
+  return (
+    <div>
+      <Map />
+    </div>
+  );
 }
 
 export default App;
