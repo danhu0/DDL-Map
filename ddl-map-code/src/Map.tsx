@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./map.css";
+import Papa from "papaparse";
 
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -14,22 +15,48 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
+interface Pin {
+  lat: number;
+  lon: number;
+  time: string;
+  license: string;
+}
+
 const Map = () => {
+  const [pins, setPins] = useState<Pin[]>([]);
+
   useEffect(() => {
+    // load CSV
+    Papa.parse("/cars.csv", {
+      download: true,
+      header: true,
+      dynamicTyping: true,
+      complete: (results) => {
+        console.log("Parsed CSV:", results.data);
+        setPins(results.data as Pin[]);
+      },
+    });
+  }, []);
+
+  useEffect(() => {
+    if (pins.length === 0) return;
+
     const map = L.map("map").setView([41.8246, -71.4142], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
     }).addTo(map);
 
-    L.marker([41.8223, -71.4107])
-      .addTo(map)
-      .bindPopup("<p>Time: Nov 17, 9:41AM<br>Liscence: Black Dodge ILJ, 621</p>");
+    pins.forEach((pin) => {
+      L.marker([pin.lat, pin.lon])
+        .addTo(map)
+        .bindPopup(`<p>Time: ${pin.time}<br>License: ${pin.license}</p>`);
+    });
 
     return () => {
       map.remove();
     };
-  }, []);
+  }, [pins]);
 
   return <div id="map"></div>;
 };
