@@ -18,12 +18,14 @@ L.Icon.Default.mergeOptions({
 interface Pin {
   lat: number;
   lon: number;
+  date: string;
   time: string;
   license: string;
 }
 
 const Map = () => {
   const [pins, setPins] = useState<Pin[]>([]);
+  const [selectedPin, setSelectedPin] = useState<Pin | null>(null);
 
   useEffect(() => {
     // load CSV
@@ -48,17 +50,56 @@ const Map = () => {
     }).addTo(map);
 
     pins.forEach((pin) => {
-      L.marker([pin.lat, pin.lon])
-        .addTo(map)
-        .bindPopup(`<p>Time: ${pin.time}<br>License: ${pin.license}</p>`);
+      const marker = L.marker([pin.lat, pin.lon]).addTo(map);
+
+      // React-friendly event handler
+      marker.on("click", () => {
+        setSelectedPin(pin);
+      });
     });
 
-    return () => {
-      map.remove();
-    };
+    return () => {map.remove();};
   }, [pins]);
 
-  return <div id="map"></div>;
+  return (
+    <>
+      <div id="map"></div>
+
+      {/* Sidebar */}
+      {selectedPin && (
+        <div className="sidebar">
+          <button className="close-btn" onClick={() => setSelectedPin(null)}>
+            ✕
+          </button>
+
+          <h2>Car Info</h2>
+          <p><strong>Date:</strong> {selectedPin.date}</p>
+          <p><strong>Time:</strong> {selectedPin.time}</p>
+          <p><strong>License:</strong> {selectedPin.license}</p>
+
+         
+        </div>
+      )}
+    </>
+  );
 };
+
+
+
+
+
+//     pins.forEach((pin) => {
+//       L.marker([pin.lat, pin.lon])
+//         .addTo(map)
+//         .bindPopup(`<p>Date: ${pin.date}<br>Time: ${pin.time}<br>License: ${pin.license}</p>`);
+//     });
+
+//     return () => {
+//       map.remove();
+//     };
+//   }, [pins]);
+
+//   return <div id="map"></div>;
+// };
 
 export default Map;
