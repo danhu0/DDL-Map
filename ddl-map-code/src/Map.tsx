@@ -45,8 +45,10 @@ const Map = () => {
 
     const map = L.map("map").setView([41.8246, -71.4142], 13);
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors",
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_dark/{z}/{x}/{y}{r}.png', {
+      minZoom: 0,
+      maxZoom: 20,
+      attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
     pins.forEach((pin) => {
@@ -58,7 +60,7 @@ const Map = () => {
       });
     });
 
-    return () => {map.remove();};
+    return () => { map.remove(); };
   }, [pins]);
 
   return (
@@ -77,7 +79,7 @@ const Map = () => {
           <p><strong>Time:</strong> {selectedPin.time}</p>
           <p><strong>License:</strong> {selectedPin.license}</p>
 
-         
+
         </div>
       )}
     </>
