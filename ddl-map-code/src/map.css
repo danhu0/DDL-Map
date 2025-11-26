@@ -11,7 +11,7 @@
   width: 320px;
   height: 100vh;
   background: white;
-  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   z-index: 1000;
   overflow-y: auto;
@@ -23,6 +23,7 @@
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -49,4 +50,16 @@
 .description {
   margin-top: 10px;
   line-height: 1.4;
+}
+
+/* customized marker */
+.heat-marker {
+  background-color: rgba(199, 0, 0, 0.3);
+  /* Red with 30% opacity */
+  border: 1px solid rgba(196, 0, 0, 0.8);
+  /* Darker red border */
+  border-radius: 50%;
+  /* Makes it circular */
+  width: 20px;
+  height: 20px;
 }

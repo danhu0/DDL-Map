@@ -4,15 +4,10 @@ import "leaflet/dist/leaflet.css";
 import "./map.css";
 import Papa from "papaparse";
 
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
+const heatIcon = L.divIcon({
+  className: 'heat-marker',
+  iconSize: [20, 20],
+  iconAnchor: [10, 10],
 });
 
 interface Pin {
@@ -20,6 +15,7 @@ interface Pin {
   lon: number;
   date: string;
   time: string;
+  location: string;
   license: string;
 }
 
@@ -52,13 +48,15 @@ const Map = () => {
     }).addTo(map);
 
     pins.forEach((pin) => {
-      const marker = L.marker([pin.lat, pin.lon]).addTo(map);
+      const marker = L.marker([pin.lat, pin.lon], { icon: heatIcon }).addTo(map);
 
       // React-friendly event handler
       marker.on("click", () => {
         setSelectedPin(pin);
       });
     });
+
+    //feature to implement: access multiple data sets when there's overlapping coordinates 
 
     return () => { map.remove(); };
   }, [pins]);
@@ -77,6 +75,7 @@ const Map = () => {
           <h2>Car Info</h2>
           <p><strong>Date:</strong> {selectedPin.date}</p>
           <p><strong>Time:</strong> {selectedPin.time}</p>
+          <p><strong>Location:</strong> {selectedPin.location}</p>
           <p><strong>License:</strong> {selectedPin.license}</p>
 
 

@@ -1,3 +1,8 @@
-lat,lon,date,time,license
-41.8223,-71.4107,Nov 17,9:41AM,Black Dodge ILJ 621
-41.8250,-71.4150,Nov 18,2:30PM,Red Ford ABC 123
+lat,lon,date,time,location,license
+41.8107,-71.4522,Aug 27,9:30AM,Silver Lake,1MJ 452
+41.8075,-71.4151,Aug 28,9:30AM,Hartford Ave & Flower St,Black Dodge Durango, 1LN  473
+41.832,-71.457,Oct 30,8:41AM,Plainfield St & Olneyville Sq,Black Chevrolet Traverse, 1MV 598
+41.8215,-71.4087,Nov 10,9:25AM,Garrahy Courthouse,Black Dodge ILJ 621
+41.8216,-71.4088,Nov 17,9:41AM,Garrahy Courthouse,Black Dodge ILJ 621
+41.8250,-71.4150,Nov 18,2:30PM,Dorrance St & Exchange St,Red Ford ABC 123
+41.8217,-71.4089,Nov 19,10:12AM,Garrahy Courthouse,Black Dodge, ILJ 621
