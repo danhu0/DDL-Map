@@ -1,8 +1,21 @@
-lat,lon,date,time,location,license
-41.8107,-71.4522,Aug 27,9:30AM,Silver Lake,1MJ 452
-41.8075,-71.4151,Aug 28,9:30AM,Hartford Ave & Flower St,Black Dodge Durango, 1LN  473
-41.832,-71.457,Oct 30,8:41AM,Plainfield St & Olneyville Sq,Black Chevrolet Traverse, 1MV 598
-41.8215,-71.4087,Nov 10,9:25AM,Garrahy Courthouse,Black Dodge ILJ 621
-41.8216,-71.4088,Nov 17,9:41AM,Garrahy Courthouse,Black Dodge ILJ 621
-41.8250,-71.4150,Nov 18,2:30PM,Dorrance St & Exchange St,Red Ford ABC 123
-41.8217,-71.4089,Nov 19,10:12AM,Garrahy Courthouse,Black Dodge, ILJ 621
+lat,lon,date,time,location,make,license,report,picture
+41.8216,-71.4088,09-06-2025,9:12AM,Garrahy Courthouse,Black Dodge Durango,2JF 771,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-11-10-05-05.jpg
+41.8214,-71.4086,09-10-2025,11:03AM,Garrahy Courthouse,White Dodge Charger,7KP 550,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-19-08-27-11.jpg
+41.8217,-71.4089,09-14-2025,8:47AM,Garrahy Courthouse,Black Ford Explorer,4MT 631,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-12-01-09-14-22.jpg
+41.8213,-71.4085,09-18-2025,1:14PM,Garrahy Courthouse,White Jeep Grand Cherokee,9RQ 954,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-21-10-28-02.jpg
+41.8219,-71.4090,09-22-2025,9:01AM,Garrahy Courthouse,Black Ford Explorer,3BK 337,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-12-02-10-04-46.jpg
+41.8215,-71.4087,09-26-2025,10:59AM,Garrahy Courthouse,White Dodge Charger,5DT 888,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-24-09-48-59.jpg
+41.8218,-71.4086,09-30-2025,8:32AM,Garrahy Courthouse,Black Jeep Grand Cherokee,8MD 662,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-11-14-02-40.jpg
+41.8212,-71.4091,10-04-2025,12:08PM,Garrahy Courthouse,White Ford Explorer,2NP 401,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-10-01-10-49-14.jpg
+41.8216,-71.4092,10-08-2025,3:53PM,Garrahy Courthouse,Black Jeep Grand Cherokee,7HR 920,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-10-30-08-36-26.jpg
+41.8214,-71.4090,10-12-2025,10:15AM,Garrahy Courthouse,White Dodge Charger,1QA 552,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-19-08-27-09.jpg
+41.8217,-71.4084,10-16-2025,11:48AM,Garrahy Courthouse,Black Dodge Charger,4FT 311,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-10-08-20-02-54.jpg
+41.8219,-71.4087,10-20-2025,9:57AM,Garrahy Courthouse,White Ford Explorer,3XS 707,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-19-08-27-24.jpg
+41.8211,-71.4089,10-24-2025,1:30PM,Garrahy Courthouse,Black Dodge Durango,8MR 144,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-12-02-10-04-51.jpg
+41.8220,-71.4092,10-28-2025,8:29AM,Garrahy Courthouse,White Jeep Grand Cherokee,6LC 785,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-10-09-39-46.jpg
+41.8213,-71.4083,11-01-2025,3:41PM,Garrahy Courthouse,Black Dodge Charger,9PD 519,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-11-14-02-40.jpg
+41.8218,-71.4085,11-05-2025,9:02AM,Garrahy Courthouse,White Ford Explorer,2MK 772,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-19-08-27-11.jpg
+41.8363,-71.4185,11-09-2025,2:55PM,Chalkstone Ave & Geneva St,Black Jeep Grand Cherokee,7BG 200,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-21-10-28-02.jpg
+41.8075,-71.4151,11-13-2025,11:44AM,Hartford Ave & Flower St,White Dodge Charger,5DK 133,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-12-01-09-14-22.jpg
+41.8332,-71.4571,11-17-2025,8:11AM,Plainfield St & Olneyville Sq,Black Ford Explorer,1MT 992,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-11-24-09-48-59.jpg
+41.8022,-71.4350,12-04-2025,3:09PM,Reservoir Ave & Cromwell St,White Jeep Grand Cherokee,3BN 611,lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum,/pictures/PHOTO-2025-12-02-10-04-46.jpg

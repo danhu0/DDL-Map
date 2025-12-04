@@ -1,0 +1,66 @@
+/* Container wrapper */
+.pin-entry {
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Form container */
+.pin-entry-form {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+/* Grid layout for form fields */
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Individual form field */
+.form-field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+/* Labels */
+.form-field label {
+  font-weight: bold;
+  font-family: inherit;
+  display: block;
+}
+
+/* Inputs and textarea */
+.pin-entry-input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.pin-entry-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: maroon;
+  color: #fff;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.pin-entry-button:hover {
+  background-color: rgb(82, 0, 0);
+}
+
+/* Form actions (save/cancel buttons) */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
