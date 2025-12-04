@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>ICE Actvity</h1>
-      <PinEntry />
+      {/* <PinEntry /> */}
       <Map />
     </div>
   );

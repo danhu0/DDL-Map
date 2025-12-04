@@ -1,12 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+/* Map container */
 #map {
   height: 100vh;
   width: 100%;
 }
 
+/* Global font */
 body {
   font-family: 'Courier New', monospace;
 }
 
+/* Filter/search box */
 .filter-box {
   position: absolute;
   bottom: 10px;
@@ -69,39 +82,6 @@ body {
   opacity: 0.8;
 }
 
-
-/* Sidebar container */
-/* .sidebar {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 320px;
-  height: 100vh;
-  background: white;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  z-index: 1000;
-  overflow-y: auto;
-  animation: slideIn 0.25s ease-out;
-}
-
-.sidebar-image {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  object-fit: cover;
-}
-
-.close-btn {
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  cursor: pointer;
-} */
-
 /* Sidebar container */
 .sidebar {
   position: fixed;
@@ -113,29 +93,28 @@ body {
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   z-index: 1000;
-
   display: flex;
   flex-direction: column;
 }
 
-/* Scrollable area BELOW the close button */
+/* Scrollable content under close button */
 .sidebar-content {
   overflow-y: auto;
   flex: 1;
-  padding-right: 4px; /* keep scrollbar off content */
+  padding-right: 4px;
   padding-bottom: 40px;
 }
 
-/* Full natural image size (scrolls with the content) */
+/* Sidebar images */
 .sidebar-image {
   width: 100%;
-  height: auto;      /* full natural height */
+  height: auto;
   border-radius: 8px;
   margin-bottom: 12px;
   object-fit: contain;
 }
 
-/* Fixed close button at the top */
+/* Close button */
 .close-btn {
   background: none;
   border: none;
@@ -145,38 +124,26 @@ body {
   margin-bottom: 10px;
 }
 
-
-
-/* Optional image */
-/* .sidebar-image {
-  width: 100%;
-  margin-top: 10px;
-  border-radius: 4px;
-} */
-
+/* Description text inside sidebar */
 .description {
   margin-top: 10px;
   line-height: 1.4;
 }
 
-/* customized marker */
+/* Customized marker */
 .heat-marker {
   background-color: rgba(199, 0, 0, 0.3);
-  /* Red with 30% opacity */
   border: 1px solid rgba(196, 0, 0, 0.8);
-  /* Darker red border */
   border-radius: 50%;
-  /* Makes it circular */
   width: 20px;
   height: 20px;
 }
 
-/* Slide animation */
+/* Slide-in animation for sidebar */
 @keyframes slideIn {
   from {
     transform: translateX(100%);
   }
-
   to {
     transform: translateX(0);
   }

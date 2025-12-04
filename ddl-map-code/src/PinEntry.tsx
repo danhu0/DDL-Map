@@ -146,28 +146,252 @@
 //   );
 // }
 
+// import React, { useState } from "react";
+// import "./pin.css"; // import the CSS file
+
+// // Simple CSV appending helper (client-side download)
+// function appendCsvRow(row: string[]) {
+//   const csvLine = row.map((v) => `"${v.replace(/"/g, '""')}"`).join(",") + "\n";
+
+//   const blob = new Blob([csvLine], { type: "text/csv" });
+//   const url = URL.createObjectURL(blob);
+
+//   const a = document.createElement("a");
+//   a.href = url;
+//   a.download = "pins.csv";
+//   a.click();
+
+//   URL.revokeObjectURL(url);
+// }
+
+// export default function PinEntry() {
+//   const [open, setOpen] = useState(false);
+//   const [form, setForm] = useState({
+//     lat: "",
+//     lon: "",
+//     date: "",
+//     time: "",
+//     location: "",
+//     make: "",
+//     license: "",
+//     report: "",
+//     picture: "",
+//   });
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = () => {
+//     appendCsvRow([
+//       form.lat,
+//       form.lon,
+//       form.date,
+//       form.time,
+//       form.location,
+//       form.make,
+//       form.license,
+//       form.report,
+//       form.picture,
+//     ]);
+
+//     setForm({
+//       lat: "",
+//       lon: "",
+//       date: "",
+//       time: "",
+//       location: "",
+//       make: "",
+//       license: "",
+//       report: "",
+//       picture: "",
+//     });
+
+//     setOpen(false);
+//   };
+
+//   return (
+//     <div className="pin-entry">
+//       {!open && (
+//         <button
+//           onClick={() => setOpen(true)}
+//           className="pin-entry-button"
+//         >
+//           Enter ICE Sighting Info
+//         </button>
+//       )}
+
+//       {open && (
+//         <div className="pin-entry-form">
+//           <div className="form-grid">
+//             {Object.keys(form).map((field) => (
+//               <div key={field} className="form-field">
+//                 <label htmlFor={field}>
+//                   {field.charAt(0).toUpperCase() + field.slice(1)}
+//                 </label>
+//                 {field === "report" ? (
+//                   <textarea
+//                     id={field}
+//                     name={field}
+//                     value={form[field]}
+//                     onChange={handleChange}
+//                     rows={4}
+//                     className="pin-entry-input"
+//                   />
+//                 ) : (
+//                   <input
+//                     id={field}
+//                     name={field}
+//                     value={form[field]}
+//                     onChange={handleChange}
+//                     className="pin-entry-input"
+//                   />
+//                 )}
+//               </div>
+//             ))}
+//           </div>
+
+//           <div className="form-actions">
+//             <button onClick={handleSubmit} className="pin-entry-button">
+//               Save
+//             </button>
+//             <button onClick={() => setOpen(false)} className="pin-entry-button">
+//               Cancel
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// import React, { useState } from "react";
+// import "./pin.css"; // import the CSS file
+
+// interface PinEntryProps {
+//   onClose: () => void; // callback to notify parent when form closes
+// }
+
+// export default function PinEntry({ onClose }: PinEntryProps) {
+//   const [form, setForm] = useState({
+//     lat: "",
+//     lon: "",
+//     date: "",
+//     time: "",
+//     location: "",
+//     make: "",
+//     license: "",
+//     report: "",
+//     picture: "",
+//   });
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = () => {
+//     const csvLine =
+//       Object.values(form)
+//         .map((v) => `"${v.replace(/"/g, '""')}"`)
+//         .join(",") + "\n";
+
+//     const blob = new Blob([csvLine], { type: "text/csv" });
+//     const url = URL.createObjectURL(blob);
+
+//     const a = document.createElement("a");
+//     a.href = url;
+//     a.download = "pins.csv";
+//     a.click();
+
+//     URL.revokeObjectURL(url);
+
+//     setForm({
+//       lat: "",
+//       lon: "",
+//       date: "",
+//       time: "",
+//       location: "",
+//       make: "",
+//       license: "",
+//       report: "",
+//       picture: "",
+//     });
+
+//     onClose(); // call parent to hide form
+//   };
+
+//   return (
+//     <div className="pin-entry-fullscreen">
+//       <div className="pin-entry-form">
+//         <div className="form-grid">
+//           {Object.keys(form).map((field) => {
+//             const key = field as keyof typeof form; // <-- type assertion
+//             return (
+//               <div key={key} className="form-field">
+//                 <label htmlFor={key}>
+//                   {key.charAt(0).toUpperCase() + key.slice(1)}
+//                 </label>
+//                 {key === "report" ? (
+//                   <textarea
+//                     id={key}
+//                     name={key}
+//                     value={form[key]}
+//                     onChange={handleChange}
+//                     rows={4}
+//                     className="pin-entry-input"
+//                   />
+//                 ) : (
+//                   <input
+//                     id={key}
+//                     name={key}
+//                     value={form[key]}
+//                     onChange={handleChange}
+//                     className="pin-entry-input"
+//                   />
+//                 )}
+//               </div>
+//             );
+//           })}
+//         </div>
+
+//         <div className="form-actions">
+//           <button onClick={handleSubmit} className="pin-entry-button">
+//             Save
+//           </button>
+//           <button onClick={onClose} className="pin-entry-button">
+//             Cancel
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 import React, { useState } from "react";
-import "./pin.css"; // import the CSS file
+import "./pin.css";
 
-// Simple CSV appending helper (client-side download)
+interface PinEntryProps {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 function appendCsvRow(row: string[]) {
   const csvLine = row.map((v) => `"${v.replace(/"/g, '""')}"`).join(",") + "\n";
-
   const blob = new Blob([csvLine], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement("a");
   a.href = url;
   a.download = "pins.csv";
   a.click();
-
   URL.revokeObjectURL(url);
 }
 
-export default function PinEntry() {
-  const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
+export default function PinEntry({ open, setOpen }: PinEntryProps) {
+  const [form, setForm] = useState<Record<string, string>>({
     lat: "",
     lon: "",
     date: "",
@@ -179,25 +403,12 @@ export default function PinEntry() {
     picture: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
-    appendCsvRow([
-      form.lat,
-      form.lon,
-      form.date,
-      form.time,
-      form.location,
-      form.make,
-      form.license,
-      form.report,
-      form.picture,
-    ]);
-
+    appendCsvRow(Object.values(form));
     setForm({
       lat: "",
       lon: "",
@@ -209,17 +420,13 @@ export default function PinEntry() {
       report: "",
       picture: "",
     });
-
     setOpen(false);
   };
 
   return (
     <div className="pin-entry">
       {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="pin-entry-button"
-        >
+        <button onClick={() => setOpen(true)} className="pin-entry-button">
           Enter ICE Sighting Info
         </button>
       )}
@@ -229,9 +436,7 @@ export default function PinEntry() {
           <div className="form-grid">
             {Object.keys(form).map((field) => (
               <div key={field} className="form-field">
-                <label htmlFor={field}>
-                  {field.charAt(0).toUpperCase() + field.slice(1)}
-                </label>
+                <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
                 {field === "report" ? (
                   <textarea
                     id={field}
