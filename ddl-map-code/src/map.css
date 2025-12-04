@@ -52,7 +52,6 @@
   line-height: 1.4;
 }
 
-/* customized marker */
 .heat-marker {
   background-color: rgba(199, 0, 0, 0.3);
   /* Red with 30% opacity */
@@ -62,4 +61,25 @@
   /* Makes it circular */
   width: 20px;
   height: 20px;
+
+  transform-origin: center center;
+  animation-name: markerExpand;
+  animation-iteration-count: 3;
+  animation-duration: 4s;
 }
+
+@keyframes markerExpand {
+  0% {
+    width: 20px;
+    height: 20px;
+  }
+
+  100% {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+/* no notation: the html elements 
+with .: inditate class
+with #: indicate ID

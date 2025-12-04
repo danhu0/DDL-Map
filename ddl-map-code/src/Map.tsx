@@ -5,9 +5,10 @@ import "./map.css";
 import Papa from "papaparse";
 
 const heatIcon = L.divIcon({
-  className: 'heat-marker',
+  className: 'heat-marker-container',
   iconSize: [20, 20],
   iconAnchor: [10, 10],
+  html: '<div class="heat-marker"></div>'
 });
 
 interface Pin {
